@@ -52,7 +52,8 @@ CREATE TABLE persons (
     name VARCHAR(50) NOT NULL,
     birth_date DATE,
     phone VARCHAR(15) NOT NULL UNIQUE
-);```
+);
+```
 
 There are a few more constraints called modifiers that define the rules regarding what values are allowed in columns
 - NOT NULL
