@@ -612,6 +612,65 @@ class Solution:
 
 ### Remove Duplicates from Sorted List
 
+#### Problem Description
+
+```md
+Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+```
+
+#### Clarifying Questions
+
+1. Will we ever have an empty list?
+2. is the linked l
+
+#### Ideas or Intuitions 
+
+We could use a two pointer approach
+
+
+
+​       1 -> 3  -> 4
+
+​            p
+
+​                  c
+
+#### Approaches 
+
+1. seen set. First duplicate we see we want to delete
+
+2. Two pointer approach
+
+   
+
+#### [Approach] Seen SET
+
+```python
+class Solution:
+	def solve():
+        pass
+```
+
+##### Time Complexity
+
+##### Space Complexity
+
+#### [Approach] Two Pointer Approach
+
+Since the list is sorted
+
+```python
+class Solution:
+	def solve():
+        pass
+```
+
+##### Time Complexity O(N)
+
+##### Space Complexity: O(N)
+
+# 
+
 ### Linked List Cycle II 
 
 ### [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/discuss/1770439/SP-171-or-Elementary-Math-or-Python)
