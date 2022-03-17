@@ -2,9 +2,24 @@
 
 ## Part I - Getting Started
 
-We begin with the basic elements: building our projects storage layer and defining the important data structures.
+2. d
 
 
 
-1. Chapter One. We will kick off the project  by building a simple json over http commit log service.
-2. Chapter 2. Structure Data with protocol Buffers,. Set up protobufs(and hopefully learn what they are)
+
+
+# Issues
+
+1. scaling__update_dm_new task definition misconfigured
+2. reset environment
+3. configure logging
+4. 
+
+[grokadm@wd2 containerized-grok-rt]$ sudo tail -f /var/log/messages
+
+Case NO
+
+08286828
+
+
+
