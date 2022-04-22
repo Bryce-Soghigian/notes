@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main(){
+/*
+When a variable is creatgged in C, a memory address is assigned to the variable
+the memory address si the location of wheere the variable is stored on the computer.
+
+When we assign a value to the viarable./ it is stored in this memory address. 
+
+To access it we can use the reference operator.
+
+
+&myVariable. 
+
+
+
+*/
+int myAge = 21;
+printf("%p", &myAge); // outputs the reference
+print("%d", myAge); // outputs the value
+
+/*
+POINTERS:
+A pointer is a variable that stores teh memory address of another variable as its value. 
+A pointer variable points to a data type of the same type and is created wit hteh star operator *. The address of the variable you are working with is assigned to the pointer.
+
+Dereferencing.
+We can use the star operator to grab the value of that memory address. 
+*/
+int* ptr = &myAge // a pointer that references the same memory
+
+return 0 // exit code. 
+}
