@@ -98,3 +98,112 @@ func main(){
 }
 ```
 
+
+
+# Structs
+
+A struct is a collection of fields. 
+
+
+
+Structs can be accessed using the dot syntax you see in many languages
+
+```go
+package main
+
+import "fmt"
+
+type Vertex struct {
+	X int
+	Y int
+}
+vertex := Vertex{1,2}
+
+fmt.Println(vertex.X, vertex.Y)
+```
+
+
+
+### Pointers to structs
+
+Struct fields can be acessed through a struct pointer 
+
+To acces the field X of a struct when we have the struct pointer p we could write (*p).X./ However this syntax is shitty. So the langauge permits us instead to write just p.X, without the explicit dereference. 
+
+
+
+### Struct Literals
+
+A struct literal denotes a newly allocated struct value by listing the values of its fields. you can list just a subset of fields by using the Name: syntax.
+
+
+
+Keep in mind if you use a struct literal to declare a blank struct its zero value will be the default value of the struct field. 
+
+
+
+
+
+```
+type Vertex struct {
+x,y int
+}
+
+The default value of x and y will be 0
+
+```
+
+
+
+# Arrays
+
+The type [n]T is an array of n values with a type of T
+
+
+
+```go
+
+type Vertex struct {
+    X,Y int
+}
+
+var adjList [100]Vertex
+
+```
+
+
+
+# Slices the superior datatype
+
+Unlike the bullshit that is arrays. Slices are dynamic. 
+
+
+
+
+
+
+
+We can also slice sarrays to form slices
+
+
+
+
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+
+	var s []int = primes[1:4]
+	fmt.Println(s)
+}
+
+
+```
+
+
+
+A slice does not store any data, it just decribes a section of an underlying array. Changing the elements of a slice modifys the corresponding elements of its underlying array. Other slices that share a the same underlying array will see those changes.
