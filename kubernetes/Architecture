@@ -1,0 +1,68 @@
+# Kubernetes -- Architecture Overview
+Intro to kubernetes architecture and understanding K8s Cluster Components
+
+## TLDR 
+Kubernetes is an open source system for automating deployment, scaling and management of containerized applications. Kubernetes abscracts away complex container managment and provides us with declarative configuration to orchestrate containers in different compute environments. 
+
+
+### Kubernetes architecture
+
+Kubernetes deployment is called a cluster. A kubernetes cluster consists of at lest one main (control) plane. and one or more worker machines called nodes. Both the control planes and node instances can be physicial devices, virtual machines or whatever. 
+
+### Control Plane
+1. Also known as master node or head node. 
+2. The control plane manages the worker nodes and t he pods in the cluster. 
+In production environments the control plane usually runs across mulstiple computers and a cluster usually runs multiple nodes provideing fault tolerance and high availablity. 
+3. The control plane recieves inpute from a CLI or UI from the kubernetes api.
+4. It is not reccommended to run user workloads on the same node that hosts the Control Plane. 
+
+
+### Nodes
+Speaking of nodes...
+1. Nodes are also known as worker node or compute node.
+2. A virtual or physical machine that contains the services necessary to run containerized applications. 
+3. A kubernetes cluster needs at least one worker node, but normally have many
+4. The worker nodes host the pods that are the components of the application workload. 
+5. Pods are scheduled and orchestrated to run on nodes.
+6. You can scale up and scale down cluster by adding and removing nodes.
+
+
+### Kubernetes Control Plane Components
+The control planes components make glbal decisions about the cluster as well as detecting and responding to cluster events. Kubernetes relies on several administrative services running on the control plane. These services manage aspects,. such as cluster component communcation, workload scheduling and cluster state persistence. 
+
+#### API Server ( Kube-apiserver) 
+1. API server exposes the kubernetes API. 
+2. Entry point for rest/kubectl
+3. It is deisgned to scale horizontally
+4. It consumes yaml/json manifest files.
+5. It validates and processes the requests made via api
+
+#### ETCD (key-value store)
+1. It is a consistent distributed and highly available key value store. 
+2. It is stateful, persisent storage that stores all of kubernetes clsuter data. 
+3. It is the source of truth for the cluster. '
+4. It watches api sserver for new work tasks.
+
+
+Facts taken into account for scheduling decisions include:
+1. Individual and collecitive resource requirements
+2. Hardware/software/policy constraints. 
+3. Affinity and anti-affinity specifications
+4. Data locality.
+5. Inter-workload interference
+6. Deadlines and taints.
+
+#### Controller Manager
+It watches the desired state of the objects it manages and watches their current state through api servere. 
+
+It Takes corrective steps to make sure the current statte is the same as the desired state.
+It is a controller of controllers. 
+
+It runs controller processess. Logically each controller is a separate processs, but to reduce complexity they are all compiled into a signle binary and run in a single process. 
+
+
+##### Types of Controllers
+Node Controller: Responsible for noticing and responding when nodes go down.
+Job Controller: Watches for job objects that represent one-off tasks, then creates Pods to run those tasks to completion.
+Endpoints Controller: Po;ulates the endpoints object 
+Service account and token controllers: Create default accoutns and api access tokes for new namespaces. 
